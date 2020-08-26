@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+          /usr/bin/mvn 
+    }
     stages {
         stage("clone code"){
             steps{
