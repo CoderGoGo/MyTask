@@ -16,6 +16,7 @@ pipeline {
                      mavenSettingsConfig: 'my-maven-settings') 
                      {
                            sh "mvn clean verify"
+                }
             }
         }
     }
