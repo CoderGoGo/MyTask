@@ -11,7 +11,7 @@ pipeline {
         }
         stage("build code"){
             steps{ 
-               sh "cd /home/ubuntu/mvn_project & mvn clean install"
+               sh "mvn clean install"
             }
         }
     }
