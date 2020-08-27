@@ -13,8 +13,8 @@ pipeline {
             steps{ 
                sh "#!/bin/bash \n"+
                 '''
-                sh 'cd /home/ubuntu/mvn_project'
-                sh 'mvn 'clean install'
+                cd /home/ubuntu/mvn_project
+                mvn 'clean install
                 '''
             }
         }
