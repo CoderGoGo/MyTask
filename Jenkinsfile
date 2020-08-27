@@ -11,7 +11,11 @@ pipeline {
         }
         stage("build code"){
             steps{ 
-               sh 'cd /home/ubuntu/compose/jenkins_home/workspace/JavaApp && mvn clean install'
+               sh "#!/bin/bash \n"+
+                '''
+                cd /home/ubuntu/compose/jenkins_home/workspace/JavaApp
+                mvn clean install
+                '''
             }
         }
     }
