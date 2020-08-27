@@ -14,7 +14,7 @@ pipeline {
                sh "#!/bin/bash \n"+
                 '''
                 cd /home/ubuntu/mvn_project
-                mvn 'clean install
+                mvn clean install
                 '''
             }
         }
