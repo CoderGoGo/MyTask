@@ -13,8 +13,11 @@ pipeline {
             steps{ 
                sh "#!/bin/bash \n"+
                 '''
+                pwd
                 cd /home/ubuntu/compose/jenkins_home/workspace/JavaApp
+                pwd
                 mvn clean install
+                pwd
                 '''
             }
         }
