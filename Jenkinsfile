@@ -13,7 +13,7 @@ pipeline {
             steps{ 
                sh "#!/bin/bash \n"+
                 '''
-                cd /home/ubuntu/mvn_project
+                cd /home/ubuntu/compose/jenkins_home/workspace/JavaApp
                 mvn clean install
                 '''
             }
