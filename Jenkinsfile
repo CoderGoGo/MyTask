@@ -11,14 +11,8 @@ pipeline {
         }
         stage("build code"){
             steps{ 
-               withMaven(
-                     maven: 'maven-3',
-                     mavenSettingsConfig: 'my-maven-settings') 
-                     {
-                           sh "mvn clean verify"
-                }
+               sh "cd /home/ubuntu/mvn_project/; mvn clean install"
             }
         }
     }
 }
-
