@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PATH = "/usr/share/maven:$PATH"
+        PATH = "/usr/bin/:$PATH"
     }
     stages {
         stage("clone code"){
@@ -11,7 +11,9 @@ pipeline {
         }
         stage("build code"){
             steps{ 
-                sh "mvn clean install"
+              withMaven(jdk: 'java-8', maven: 'mvn_3.6.0') {
+                    sh "mvn clean install" 
+               }
             }
         }
     }
