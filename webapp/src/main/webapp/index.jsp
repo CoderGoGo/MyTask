@@ -1,4 +1,4 @@
-<h1> Welcome to Valaxy Technologies </h1>
-<h2> Steup and deploy using ansible </h2>
+<h1> Hello form Denys </h1>
+<h2> Learn Java with a mentor </h2>
 
 
