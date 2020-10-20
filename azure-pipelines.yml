@@ -17,4 +17,5 @@ jobs:
       inputs:
         script: |
           print('=========== Gradle build start ==============')
-          sh "gradle clean build copyDriversToBuild"
+          #sh "gradle clean build copyDriversToBuild"
+          echo "gradle clean build copyDriversToBuild"
