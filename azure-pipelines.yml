@@ -18,4 +18,6 @@ jobs:
         targetType: inline
         script: |
           print('=========== Gradle build start ==============')
-          sh "gradle clean build copyDriversToBuild"   
+          #sh "gradle clean build copyDriversToBuild"
+          echo "=========== In Progress =============="  
+          echo "=========== Finish =============="
