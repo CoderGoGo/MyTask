@@ -18,3 +18,5 @@ jobs:
         script: |
           print('=========== Gradle build start ==============')
           echo "gradle clean build copyDriversToBuild"
+      env:
+        BUILD_ID: 10
