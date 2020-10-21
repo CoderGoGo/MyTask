@@ -15,8 +15,5 @@ jobs:
       name: Gradle_build
       displayName: Gradle build
       inputs:
-        script: |
-          print('=========== Gradle build start ==============')
-          echo "gradle clean build copyDriversToBuild"
-      env:
-        BUILD_ID: 10
+        script: 'echo build super'
+                  
