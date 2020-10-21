@@ -3,6 +3,8 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+name: Build-$(Build.BuildId)
+
 trigger:
 - master
 
@@ -15,9 +17,11 @@ jobs:
       name: Gradle_build
       displayName: Gradle build
       inputs:
-        targetType: inline
+        targetType: 'inline'
         script: |
           echo ('=========== Gradle build start ==============')
           #sh "gradle clean build copyDriversToBuild"
           echo "=========== In Progress =============="  
           echo "=========== Finish =============="
+      env:
+        BUILD_ID: $(Build.BuildId)
