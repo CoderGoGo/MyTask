@@ -15,6 +15,7 @@ jobs:
       name: Gradle_build
       displayName: Gradle build
       inputs:
+        targetType: inline
         script: |
           print('=========== Gradle build start ==============')
-          sh "gradle clean build copyDriversToBuild"  
+          sh "gradle clean build copyDriversToBuild"   
