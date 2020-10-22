@@ -22,7 +22,7 @@ jobs:
           echo "=========== Gradle build start =============="
           #sh "gradle clean build copyDriversToBuild"
           echo "=========== In Progress =============="  
-          echa "=========== Finish =============="
+          echo "=========== Finish =============="
           build_result=$?
 
           if [[ $build_result == '0' ]]
@@ -33,6 +33,8 @@ jobs:
             #cp -r src/main/resources/drivers/* ${app_home}/
             #sudo systemctl restart capbuilderautomate.service
             echo "=========== Deploying end ================"
+          else
+            exit 1
           fi
       env:
         BUILD_ID: $(Build.BuildId)
@@ -48,6 +50,8 @@ jobs:
           if [[ $? == '0' ]]
           then 
           echo "=========== Cheking finished =============="
+          else
+            exit 1
           fi
       env:
         BUILD_ID: $(Build.BuildId)    
