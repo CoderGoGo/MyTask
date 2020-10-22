@@ -43,7 +43,7 @@ jobs:
         targetType: 'inline'
         script: |
           echo "=========== Server checking =============="
-          sleep 90 
+          sleep 30 
           #curl -w %{http_code} --output /dev/null -fksILX GET http://127.0.0.1:8080/savecap
           if [[ $? == '0' ]]
           then 
