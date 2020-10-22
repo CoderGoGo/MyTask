@@ -22,7 +22,7 @@ jobs:
           echo "=========== Gradle build start =============="
           #sh "gradle clean build copyDriversToBuild"
           echo "=========== In Progress =============="  
-          echa "=========== Finish =============="
+          echo "=========== Finish =============="
           build_result=$?
 
           if [[ $build_result == '0' ]]
@@ -55,5 +55,21 @@ jobs:
             echo "=========== Server not started ================"
             exit 1
           fi
+      env:
+        BUILD_ID: $(Build.BuildId)    
+    - task: Bash@3
+      name: Artifacts_upload
+      displayName: Artifacts upload
+      inputs:
+        targetType: 'inline'
+        script: |
+          sh "mkdir -p ${app_home}/artifact"
+          echo  "Copy drivers"
+          sh "cp -r ${WORKSPACE}/${app_dir}/src/main/resources/drivers/* ${app_home}/ && cp -r ${WORKSPACE}/${app_dir}/src/main/resources/drivers/* ${app_home}/artifact/"
+          echo  "Rename artifact"
+          sh "cp ${app_home}/capbuilderlogodigitizingservice.jar ${app_home}/artifact/cb_service-${VERSION}.jar"
+          echo  "zip artifact with drivers" 
+          sh "cd ${app_home}/artifact/ && zip -r cb_service-${VERSION}.zip  ./*"
+          echo  "Specify artifactory server" 
       env:
         BUILD_ID: $(Build.BuildId)    
