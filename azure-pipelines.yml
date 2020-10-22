@@ -24,7 +24,7 @@ jobs:
           echo "=========== In Progress =============="  
           echo "=========== Finish =============="
           build_result=$?
-          if [[$build_result='0']]
+          if [[$build_result == '0']]
           then 
             echo "=========== Deploying start =============="
             #rm -rf ${app_home}/*
