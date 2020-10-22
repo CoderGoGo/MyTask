@@ -72,4 +72,17 @@ jobs:
           sh "cd ${app_home}/artifact/ && zip -r cb_service-${VERSION}.zip  ./*"
           echo  "Specify artifactory server" 
       env:
-        BUILD_ID: $(Build.BuildId)    
+        BUILD_ID: $(Build.BuildId)
+    - task: PublishPipelineArtifact@1
+      name: publish_Config
+      displayName: Publish hybrisServer-Config.zip
+      enabled: ${{ parameters.ENABLED_TASKS.publish_Config }}
+      inputs:
+        targetPath: '${app_home}/artifact/cb_service-${VERSION}.zip'
+        artifact: 'hybrisServer-Config-$(A_VERSION).zip'
+        publishLocation: 'pipeline'
+      env:
+        app_home: '/opt/capbuilder_service'
+        app_dir : 'services/capbuilderlogodigitizingservice'
+        VERSION : ''
+        BUILD_ID: $(Build.BuildId)  
