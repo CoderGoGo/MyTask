@@ -77,11 +77,10 @@ jobs:
       name: publish_Config
       displayName: Publish Config.zip
       inputs:
-        targetPath: '${app_home}/artifact/cb_service-${VERSION}.zip'
+        targetPath: 'Config.zip'
         artifact: 'Config.zip'
         publishLocation: 'pipeline'
       env:
-        app_home: '/opt/capbuilder_service'
         app_dir : 'services/capbuilderlogodigitizingservice'
         VERSION : ''
         BUILD_ID: $(Build.BuildId)  
