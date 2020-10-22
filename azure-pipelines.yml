@@ -45,6 +45,9 @@ jobs:
           echo "=========== Server checking =============="
           sleep 90 
           #curl -w %{http_code} --output /dev/null -fksILX GET http://127.0.0.1:8080/savecap
+          if [[ $? == '0' ]]
+          then 
           echo "=========== Cheking finished =============="
+          fi
       env:
         BUILD_ID: $(Build.BuildId)    
