@@ -34,6 +34,7 @@ jobs:
             #sudo systemctl restart capbuilderautomate.service
             echo "=========== Deploying end ================"
           else
+            echo "=========== Deploying failed ================"
             exit 1
           fi
       env:
@@ -51,6 +52,7 @@ jobs:
           then 
           echo "=========== Cheking finished =============="
           else
+            echo "=========== Server not started ================"
             exit 1
           fi
       env:
