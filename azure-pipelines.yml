@@ -36,3 +36,15 @@ jobs:
           fi
       env:
         BUILD_ID: $(Build.BuildId)
+    - task: Bash@3
+      name: Server_check
+      displayName: Server check
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo "=========== Server checking =============="
+          sleep 90 
+          #curl -w %{http_code} --output /dev/null -fksILX GET http://127.0.0.1:8080/savecap
+          echo "=========== Cheking finished =============="
+      env:
+        BUILD_ID: $(Build.BuildId)    
