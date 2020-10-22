@@ -20,8 +20,18 @@ jobs:
         targetType: 'inline'
         script: |
           echo "=========== Gradle build start =============="
-          # sh "gradle clean build copyDriversToBuild"
+          #sh "gradle clean build copyDriversToBuild"
           echo "=========== In Progress =============="  
           echo "=========== Finish =============="
+          build_result=$?
+          if [[$build_result='0']]
+          then 
+            echo "=========== Deploying start =============="
+            #rm -rf ${app_home}/*
+            #cp build/libs/capbuilderlogodigitizingservice-* ${app_home}/capbuilderlogodigitizingservice.jar
+            #cp -r src/main/resources/drivers/* ${app_home}/
+            #sudo systemctl restart capbuilderautomate.service
+            echo "=========== Deploying end ================"
+          fi
       env:
         BUILD_ID: $(Build.BuildId)
