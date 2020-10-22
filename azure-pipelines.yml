@@ -63,13 +63,13 @@ jobs:
       inputs:
         targetType: 'inline'
         script: |
-          sh "mkdir -p ${app_home}/artifact"
+          #sh "mkdir -p ${app_home}/artifact"
           echo  "Copy drivers"
-          sh "cp -r ${WORKSPACE}/${app_dir}/src/main/resources/drivers/* ${app_home}/ && cp -r ${WORKSPACE}/${app_dir}/src/main/resources/drivers/* ${app_home}/artifact/"
+          #sh "cp -r ${WORKSPACE}/${app_dir}/src/main/resources/drivers/* ${app_home}/ && cp -r ${WORKSPACE}/${app_dir}/src/main/resources/drivers/* ${app_home}/artifact/"
           echo  "Rename artifact"
-          sh "cp ${app_home}/capbuilderlogodigitizingservice.jar ${app_home}/artifact/cb_service-${VERSION}.jar"
+          #sh "cp ${app_home}/capbuilderlogodigitizingservice.jar ${app_home}/artifact/cb_service-${VERSION}.jar"
           echo  "zip artifact with drivers" 
-          sh "cd ${app_home}/artifact/ && zip -r cb_service-${VERSION}.zip  ./*"
+          #sh "cd ${app_home}/artifact/ && zip -r cb_service-${VERSION}.zip  ./*"
           echo  "Specify artifactory server" 
       env:
         BUILD_ID: $(Build.BuildId)
