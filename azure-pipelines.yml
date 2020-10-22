@@ -46,7 +46,7 @@ jobs:
         targetType: 'inline'
         script: |
           echo "=========== Server checking =============="
-          sleep 30 
+          sleep 30 # timeout
           #curl -w %{http_code} --output /dev/null -fksILX GET http://127.0.0.1:8080/savecap
           if [[ $? == '0' ]]
           then 
@@ -73,16 +73,15 @@ jobs:
           echo  "Specify artifactory server" 
       env:
         BUILD_ID: $(Build.BuildId)
-    # - task: PublishPipelineArtifact@1
-    #   name: publish_Config
-    #   displayName: Publish hybrisServer-Config.zip
-    #   enabled: ${{ parameters.ENABLED_TASKS.publish_Config }}
-    #   inputs:
-    #     targetPath: '${app_home}/artifact/cb_service-${VERSION}.zip'
-    #     artifact: 'hybrisServer-Config-$(A_VERSION).zip'
-    #     publishLocation: 'pipeline'
-    #   env:
-    #     app_home: '/opt/capbuilder_service'
-    #     app_dir : 'services/capbuilderlogodigitizingservice'
-    #     VERSION : ''
-    #     BUILD_ID: $(Build.BuildId)  
+    - task: PublishPipelineArtifact@1
+      name: publish_Config
+      displayName: Publish Config.zip
+      inputs:
+        targetPath: '${app_home}/artifact/cb_service-${VERSION}.zip'
+        artifact: 'Config.zip'
+        publishLocation: 'pipeline'
+      env:
+        app_home: '/opt/capbuilder_service'
+        app_dir : 'services/capbuilderlogodigitizingservice'
+        VERSION : ''
+        BUILD_ID: $(Build.BuildId)  
