@@ -2,5 +2,5 @@
 <h2> Learn Java with a mentor </h2>
 <h2> Server ip is </h2>
 curl "icanhazip.com"
-
+curl -X GET http://icanhazip.com/
 
