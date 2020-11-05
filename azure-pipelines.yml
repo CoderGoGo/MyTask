@@ -8,8 +8,7 @@ name: Build-$(Build.BuildId)
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+pool: Default
 jobs:
   - job: Build
     steps:
